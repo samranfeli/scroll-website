@@ -35,3 +35,25 @@
 .inline > * {
   width: 50%;
 }
+@media only screen and (max-width: 800px) {
+  .form {
+    margin-top: 3rem;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    display: flex;
+    margin-bottom: 3rem;
+  }
+  .inline {
+    display: block;
+  }
+  .form .inline label{
+    margin-left: 0 !important;
+  }
+  .inline > *, .inline input {
+    width: 100% !important;
+  }
+  .form > *:last-child {
+    width: 100%;
+    margin-top: 2rem;
+  }  
+}

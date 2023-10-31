@@ -249,11 +249,18 @@
 }
 
 @media only screen and (max-width: 800px) {
+  .main {
+    margin-top: 3rem;
+  }  
+  .title {
+    font-size: 35px;
+    margin-bottom: 2rem;
+  }  
   .featureBlock:not(:last-child) {
-    margin-bottom: 5rem;
+    margin-bottom: 2rem;
   }
   .featureBlock {
-    margin-bottom: 5rem;
+    margin-bottom: 2rem;
   }
   .cards {
     flex-direction: column;
@@ -267,7 +274,8 @@
     height: 330px;
   }
   .scary {
-    padding-bottom: 5rem;
+    margin-top: 3rem;
+    padding-bottom: 2rem;
   }
   .scary h1 {
     font-size: 30px !important;
@@ -289,13 +297,15 @@
   }
 
   .bigText {
-    font-size: 30px;
+    font-size: 25px;
+    margin-bottom: 1rem;
   }
 
   .cardsRef {
     padding-top: 0;
     height: 1700px;
     overflow: hidden;
+    padding-bottom: 0;
   }
 }
 

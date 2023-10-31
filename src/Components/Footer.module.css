@@ -194,6 +194,19 @@
 }
 
 @media only screen and (max-width: 500px) {
+  .container {
+    position: sticky;
+    height: auto;
+  }
+  .main{
+    height: auto;
+  }
+  .big {
+    font-size: 25px;
+  }  
+  .input {
+    width: 100%;
+  }
   .parent {
     overflow: visible;
   }

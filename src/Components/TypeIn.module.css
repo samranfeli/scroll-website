@@ -55,6 +55,9 @@
 
 @media screen and (max-width : 500px) {
   .main{
-    font-size: x-large;
+    font-size: large;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    font-weight: 600;
   }
 }
