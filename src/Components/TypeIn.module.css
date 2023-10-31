@@ -1,0 +1,60 @@
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 1rem;
+  font-weight: bold;
+  font-size: xx-large;
+  padding: 0 10vw;
+  min-height: 10rem;
+  position: relative;
+  padding-top: 16rem;
+  padding-bottom: 8rem;
+  z-index: 10;
+  background-color: #000;
+}
+
+.main > * {
+  text-align: center;
+  transition: all var(--transTime);
+  background-color: black;
+}
+
+/* .visible {
+  transform: translateX(0);
+} */
+
+.main > *:nth-child(2) {
+  top: 10rem;
+}
+
+.main > *:last-child {
+  top: 15rem;
+}
+
+.scrool_animate {
+  transition: all 1s;
+  opacity: 0;
+  transform: translateY(-400%);
+  margin-bottom: 1px;
+}
+
+.animate {
+  transform: translateY(-0%);
+  position: relative;
+  opacity: 1;
+}
+
+.icons {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+@media screen and (max-width : 500px) {
+  .main{
+    font-size: x-large;
+  }
+}

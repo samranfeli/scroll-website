@@ -1,0 +1,313 @@
+.main {
+  min-height: 100vh;
+  margin-top: 15rem;
+}
+
+.featureBlock {
+  display: flex;
+  width: 90%;
+  min-height: 20rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 15rem;
+}
+
+.featureBlock:not(:last-child) {
+  margin-bottom: 15rem;
+}
+
+.featureBlock:nth-of-type(2n) {
+  flex-direction: row-reverse;
+}
+
+.image {
+  width: 45%;
+  position: relative;
+}
+
+.image_img {
+  width: 29%;
+  position: absolute;
+  height: auto;
+  object-fit: contain;
+  left: -57%;
+  top: 7%;
+  z-index: 10;
+  transition: all 3.5s;
+  transform: translateX(0%);
+  opacity: 0;
+}
+.image_img2 {
+  width: 29%;
+  position: absolute;
+  height: auto;
+  object-fit: contain;
+  left: -44%;
+  top: 7%;
+  z-index: 9;
+  transition: all 3s;
+  transform: translateX(0%);
+  opacity: 0;
+}
+.image_img3 {
+  width: 29%;
+  position: absolute;
+  height: auto;
+  object-fit: contain;
+  left: -31%;
+  top: 7%;
+  z-index: 8;
+  transition: all 2.5s;
+  transform: translateX(0%);
+  opacity: 0;
+}
+.image_img4 {
+  width: 29%;
+  position: absolute;
+  height: auto;
+  object-fit: contain;
+  top: 7%;
+  left: -18%;
+  transition: all 2s;
+  transform: translateX(0%);
+  opacity: 0;
+  z-index: 7;
+}
+.image_img5 {
+  width: 27%;
+  position: absolute;
+  height: auto;
+  object-fit: contain;
+  top: 8%;
+  z-index: 6;
+  transition: all 1.5s;
+  transform: translateX(0%);
+  opacity: 0;
+  left: 0%;
+}
+
+.animate {
+  transform: translateX(230%);
+  opacity: 1;
+}
+
+.description {
+  width: 60%;
+}
+
+.container {
+  width: 100%;
+  position: relative;
+}
+
+.cardsRef {
+  /* height: 750vh; */
+  padding-top: 500px;
+  padding-bottom: 150px;
+}
+
+.cards {
+  /* position: relative; */
+  /* top: 100%; */
+  /* width: 50%; */
+  margin-left: auto;
+  margin-right: auto;
+  /* transform: translateY(-50%); */
+  /* min-height: 15rem; */
+  display: flex;
+  width: 90%;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  /* margin-top: 20rem; */
+}
+
+.card {
+  min-width: 8rem;
+  transition: all var(--transTime);
+  transform-origin: top;
+  transform: scale(1.3);
+  max-width: 240px;
+  aspect-ratio: 1 / 1;
+  margin-bottom: 1rem;
+  margin-top: -50%;
+}
+
+.active {
+  filter: none;
+}
+
+.cardImage {
+  background-color: transparent;
+  border-radius: 0.5rem;
+  position: relative;
+}
+
+.cardImage video {
+  transition: all ease-in var(--transTime);
+  max-width: 240px;
+}
+
+/* .cardImage::after {
+  background: rgba(255, 255, 255, 0.13);
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.19) 0%,
+    rgba(255, 255, 255, 0.19) 77%,
+    rgba(255, 255, 255, 0) 100%,
+    rgba(255, 255, 255, 0.4) 92%
+  );
+  content: "";
+  height: 10%;
+  left: 5%;
+  position: absolute;
+  top: 3%;
+  width: 89%;
+  z-index: 102;
+  animation: shine 4s infinite;
+}
+
+@keyframes shine {
+  50% {
+    top: 84%;
+  }
+  100% {
+    top: 3%;
+  }
+} */
+
+.title {
+  margin-top: 2rem;
+  color: var(--orange);
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 55px;
+  font-weight: 700;
+  margin-bottom: 9rem;
+}
+
+.bCopy {
+  font-size: large;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 1rem 2rem;
+  margin-bottom: 10rem;
+}
+
+.description {
+  padding: 1rem 2rem;
+  box-sizing: border-box;
+}
+
+.bigText {
+  font-size: 40px;
+  font-weight: 700;
+  margin-bottom: 4rem;
+}
+
+.smallText {
+  font-size: 22px;
+  text-align: justify;
+  letter-spacing: 2px;
+}
+
+.iconItem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: auto;
+  width: min-content;
+}
+
+.iconItem > *:first-child {
+  margin-right: 1rem;
+}
+
+.iconDesc {
+  white-space: nowrap;
+}
+
+.scary {
+  margin-top: 10rem;
+  color: var(--white);
+  padding: 0 5rem;
+  text-align: center;
+}
+
+.scary > *:first-child {
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.scary > *:last-child {
+  line-height: 2rem;
+}
+
+@media only screen and (max-width: 800px) {
+  .featureBlock:not(:last-child) {
+    margin-bottom: 5rem;
+  }
+  .featureBlock {
+    margin-bottom: 5rem;
+  }
+  .cards {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    top: 700px;
+  }
+  .card {
+    margin-top: 1%;
+    margin-bottom: 0;
+    /* width: 50%; */
+    height: 330px;
+  }
+  .scary {
+    padding-bottom: 5rem;
+  }
+  .scary h1 {
+    font-size: 30px !important;
+  }
+  .featureBlock {
+    flex-direction: column !important;
+  }
+  .image {
+    width: 100%;
+  }
+  .description {
+    width: 100%;
+    padding: 1rem 1rem;
+  }
+
+  .smallText {
+    font-size: 16px;
+    text-align: left;
+  }
+
+  .bigText {
+    font-size: 30px;
+  }
+
+  .cardsRef {
+    padding-top: 0;
+    height: 1700px;
+    overflow: hidden;
+  }
+}
+
+
+
+@media (min-width:1600px) {
+  .cardsRef {
+    padding-top: 630px;
+  }
+}
+@media (min-width:2000px) {
+  .cardsRef {
+    padding-top: 800px;
+  }
+}

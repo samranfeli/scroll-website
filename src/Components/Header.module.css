@@ -1,0 +1,137 @@
+.header {
+  background-color: rgba(105, 105, 105, 0.489);
+  backdrop-filter: blur(25px);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5rem;
+  transform: translateY(-300%);
+  transition: all 1s;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  opacity: 0;
+  animation: reveal 1ms 1s forwards;
+}
+
+@keyframes reveal {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.visible {
+  transform: translateY(0);
+}
+
+.navigation > a,
+.navMobile > a {
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+}
+
+.navigation > a:not(:last-child) {
+  margin-right: 1.5rem;
+}
+
+.navigation {
+  display: flex;
+  width: 100%;
+  margin-left: 2rem;
+}
+
+.navMobile {
+  display: none;
+  flex-direction: column;
+  transform: translateY(5rem) scale(1);
+  background-color: var(--black);
+  width: 100%;
+  transition: all var(--transTime);
+  transform-origin: top right;
+  border-radius: 0.5rem;
+  position: fixed;
+  right: 1rem;
+  top: 1rem;
+  width: 10rem;
+  color: var(--white);
+  text-align: right;
+}
+.navMobile > a {
+  padding: 12px;
+  text-align: left;
+}
+
+.menuButton {
+  display: none;
+  background-color: var(--black);
+  color: var(--white);
+  border: 1px solid var(--black);
+  padding: 12px 1rem;
+  border-radius: 0.5rem;
+  order: 2;
+  margin-right: 1rem;
+}
+
+.navHidden {
+  transform: translateY(5rem) scale(0);
+}
+
+.logo {
+  margin-left: 1rem;
+  white-space: nowrap;
+  margin-right: 3rem;
+  min-width: 5rem;
+}
+
+.actions {
+  margin-right: 1rem;
+  white-space: nowrap;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.purple {
+  background-color: var(--orange);
+  font-size: medium;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  border: none;
+  color: var(--white);
+  margin-right: 0.5rem;
+  text-decoration: none;
+}
+
+@media only screen and (max-width: 800px) {
+  .navigation {
+    display: none;
+  }
+  .navMobile {
+    display: flex;
+  }
+  .menuButton {
+    display: inline-block;
+  }
+  .purple {
+    margin-left: auto;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .actions > a {
+    display: none;
+  }
+  .purple {
+    margin-right: 0 !important;
+  }
+}
+@media only screen and (max-width: 420px) {
+  .logo {
+    margin-right: 10px;
+  }
+}
