@@ -16,7 +16,7 @@
     var(--orange),
     rgb(167, 0, 0)
   );
-  height: 20rem;
+  min-height: 20rem;
   margin-top: -2rem;
   margin-bottom: 15rem;
 }
@@ -48,7 +48,6 @@
   width: 100%;
   justify-content: start;
   align-items: center;
-  padding-bottom: 25px;
 }
 
 .image {
