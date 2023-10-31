@@ -116,7 +116,7 @@ const Home = (props) => {
   const setLoaded = ()=>{
     setTimeout(()=>{
       setVideoIsLoaded(true)
-    },1000)
+    },200)
   };
   useEffect(()=>{
     
@@ -131,6 +131,7 @@ const Home = (props) => {
   return (
 
     <div className={classes.main} ref={homeRef}>
+      <div className={`${classes.loading} ${videoIsLoaded?classes.hide:''}`} />
       <div ref={zoomedInRef} className={classes.zoomRef} id="home">
         <div ref={lockRef} className={classes.lockRef} />
         <div ref={postsRef} className={classes.postsRef} />
