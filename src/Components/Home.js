@@ -115,6 +115,7 @@ const Home = (props) => {
 
   const setLoaded = ()=>{setVideoIsLoaded(true)};
   useEffect(()=>{
+    debugger;
     const video = document.getElementById('startScreen');
     video?.addEventListener('loadeddata',setLoaded);
     return(()=>{
@@ -184,7 +185,7 @@ const Home = (props) => {
         </div>
       </div>}
       
-      {isLocked && <div
+      <div
         className={`${classes.hero}   `}
         style={{
           opacity: heroOpacity,
@@ -208,7 +209,7 @@ const Home = (props) => {
           {" "}
           <img className={classes.logo} src={logo} />
         </p>
-      </div>}
+      </div>
       
     </div>
   );
