@@ -2,6 +2,7 @@ import classes from "./Header.module.css";
 import logo from "../Assets/Group.png";
 import { useState } from "react";
 import { AiOutlineMenu } from "react-icons/ai";
+import { Link } from "react-router-dom";
 
 const Header = (props) => {
   const [navOpen, setNavOpen] = useState(false);
@@ -34,20 +35,20 @@ const Header = (props) => {
         <a href="/#" onClick={scrollToThis} className={classes.navLink}>
           Home
         </a>
-        <a href="http://market.flibbo.com" onClick={scrollToThis}>
+        <a href="https://market.flibbo.com" onClick={scrollToThis}>
           Market Place
         </a>
         <a href="/#features" onClick={scrollToThis}>
           Feature
         </a>
-        <a href="https://pwa.flibbo.com">Login</a>
+        <a href="https://market.flibbo.com">Login</a>
         <a href="/contact-us">Contact Us</a>
       </nav>
       <nav className={classes.navigation}>
         <a href="/#home" onClick={scrollToThis}>
           Home
         </a>
-        <a href="http://market.flibbo.com" onClick={scrollToThis}>
+        <a href="https://market.flibbo.com" onClick={scrollToThis}>
           Market Place
         </a>
         <a href="#features" onClick={scrollToThis}>
@@ -59,10 +60,12 @@ const Header = (props) => {
         <a href="/contact-us">Contact Us</a>
       </nav>
       <div className={classes.actions}>
-        <a href="https://pwa.flibbo.com" className={classes.purple}>
+        <a href="https://market.flibbo.com" className={classes.purple}>
           Login
         </a>
-        <button className={classes.purple}>Download Flibbo</button>
+        <Link className={classes.purple} to="/#downloads" onClick={scrollToThis}>
+          Download Flibbo
+        </Link>
       </div>
     </header>
   );

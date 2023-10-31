@@ -1,5 +1,6 @@
 import { Fragment, useEffect, useRef, useState } from "react";
 import { useAnimateOnScroll } from "../Hooks/UseAninateOnScroll";
+import {useLocation} from "react-router-dom";
 import classes from "./Home.module.css";
 import frame from "../Assets/apple-iphone-14-max-2022-medium.png";
 import userImage from "../Assets/Profile main holder at menu.png";
@@ -67,6 +68,18 @@ const Home = (props) => {
         document.removeEventListener("scroll", handleOpacity, false);
       };
   }, [isLocked, lockRef, isPostsScrolling]);
+
+  const { hash } = useLocation();
+  useEffect(()=>{
+    if (hash){
+      setTimeout(()=>{
+        if (document.getElementById(hash.split("#")[1]))
+        document
+          .getElementById(hash.split("#")[1])
+          .scrollIntoView({ behavior: "smooth" });
+      },300)
+    }
+  },[hash]);
 
   useEffect(() => {
   //  if ( (postsRef.current.getBoundingClientRect().y /
@@ -191,7 +204,7 @@ const Home = (props) => {
       </div>}
       
       <div
-        className={`${classes.hero}   `}
+        className={`${classes.hero} ${!isLocked?classes.hide:""} `}
         style={{
           opacity: heroOpacity,
         }}

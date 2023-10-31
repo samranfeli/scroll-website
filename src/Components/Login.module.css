@@ -1,7 +1,11 @@
+.wrapper{
+  padding-top: 10rem;
+  min-height: 18rem;
+  position: relative;
+}
 .main {
   display: flex;
   width: 95%;
-  min-height: 18rem;
   margin-left: auto;
   margin-right: auto;
   border-radius: 2rem;
@@ -44,6 +48,7 @@
   width: 100%;
   justify-content: start;
   align-items: center;
+  padding-bottom: 25px;
 }
 
 .image {

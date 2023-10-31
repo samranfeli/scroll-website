@@ -167,6 +167,10 @@
   flex-direction: column;
   align-items: center;
 }
+.hero.hide{
+  opacity: 0;
+  visibility: hidden;
+}
 
 .textHeader {
   margin-bottom: 3rem;
