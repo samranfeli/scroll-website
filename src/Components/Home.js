@@ -112,10 +112,14 @@ const Home = (props) => {
     videoRefOne?.current?.play();
     videoRefTwo?.current?.play();
   }, [500]);
-
-  const setLoaded = ()=>{setVideoIsLoaded(true)};
+ 
+  const setLoaded = ()=>{
+    setTimeout(()=>{
+      setVideoIsLoaded(true)
+    },1000)
+  };
   useEffect(()=>{
-    debugger;
+    
     const video = document.getElementById('startScreen');
     video?.addEventListener('loadeddata',setLoaded);
     return(()=>{
