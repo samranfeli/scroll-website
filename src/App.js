@@ -16,7 +16,7 @@ function App() {
     <Router>
       <Routes>
         <Route
-          path="/old"
+          path="/"
           element={
             <Fragment>
               <Header visible={!isHeaderHidden} hideFirst={true} />
@@ -29,7 +29,7 @@ function App() {
           }
         />
         <Route
-          path="/"
+          path="/n"
           element={
             <Fragment>
               <Header visible={!isHeaderHidden} hideFirst={true} />
