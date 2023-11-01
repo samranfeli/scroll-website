@@ -1,6 +1,7 @@
 import { Fragment, useState } from "react";
 import Header from "./Components/Header";
 import Home from "./Components/Home";
+import Home2 from './pages/Home';
 import Features from "./Components/Features";
 import Login from "./Components/Login";
 import Footer from "./Components/Footer";
@@ -24,6 +25,15 @@ function App() {
               <Features />
               <Login />
               <Footer />
+            </Fragment>
+          }
+        />
+        <Route
+          path="/H"
+          element={
+            <Fragment>
+              <Header visible={!isHeaderHidden} hideFirst={true} />
+              <Home2 />
             </Fragment>
           }
         />
