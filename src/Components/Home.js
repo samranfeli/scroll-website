@@ -140,7 +140,7 @@ const Home = (props) => {
     });
   },[]);
 
-  console.log(zoomLevel);
+  //console.log(zoomLevel);
   return (
 
     <div className={classes.main} ref={homeRef}>

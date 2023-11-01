@@ -373,14 +373,14 @@ const Features = () => {
         item?.current?.play();
       });
 
-      console.log(playVideoRef);
+      //console.log(playVideoRef);
     }
     if (playVideoRefMobile?.length > 0) {
       playVideoRefMobile?.map((item) => {
         item?.current?.play();
       });
 
-      console.log(playVideoRef);
+      //console.log(playVideoRef);
     }
   }, [playVideoRef, playVideoRefMobile]);
 
