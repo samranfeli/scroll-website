@@ -45,6 +45,9 @@ transform: translateY(-50%);
 .mobileWRapper{
     position: relative;
     display: inline-block;
+    overflow: hidden;
+    border-radius: 55px;
+    box-shadow: 0 0 105px 32px #f25c0556;
 }
 .innerVideo{
     position: absolute;
@@ -61,7 +64,6 @@ transform: translateY(-50%);
     position: relative;
     z-index: 1;
     display: block;
-    box-shadow: 0 0 105px 32px #f25c0556;
     border-radius: 55px;
 }
 .frameHeader{
@@ -85,6 +87,14 @@ transform: translateY(-50%);
 } */
 .hide{
     opacity: 0;
+}
+.posts{
+    position: absolute;
+    top: 0;
+    left: 5px;
+    right: 5px;
+    width: calc(100% - 10px);
+    height: auto;
 }
 @media screen and (max-width:800px) {
     .title{

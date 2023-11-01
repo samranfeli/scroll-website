@@ -1,4 +1,4 @@
-import { useRef,useEffect,useState } from "react";
+import { useRef, useEffect, useState } from "react";
 
 import Features from "../Components/Features";
 import Login from "../Components/Login";
@@ -13,80 +13,91 @@ import footerImage from "../Assets/Frame 40 (2).svg";
 import posts from "../Assets/Final.png";
 import headerImage from "../Assets/Frame 39.png";
 
-
 import classes from './Home.module.css';
 
 const Home = props => {
-    
+
     const videoRefOne = useRef(null);
     const innerVideoRef = useRef(null);
+    const postsRef = useRef(null);
+    const frameRef = useRef(null);
+    const frameHeaderRef = useRef(null);
+    const frameFooterRef = useRef(null);
 
-    const [scroll,setScroll] = useState(0);
-    const [screenHeight,setScreenHeight] = useState(0);
-    
+    const [scroll, setScroll] = useState(0);
+    const [screenHeight, setScreenHeight] = useState(0);
+    const [frameHeaderHeight, setFrameHeaderHeight] = useState(0);
+    const [frameFooterHeight, setFrameFooterHeight] = useState(0);
+    const [framePostsHeight, setFramePostsHeight] = useState(0);
+    const [frameHeight, setFrameHeight] = useState(0);
 
-      useEffect(()=>{
+    useEffect(() => {
         videoRefOne?.current?.play();
-      },[videoRefOne]);
+    }, [videoRefOne]);
 
-      useEffect(()=>{
+    useEffect(() => {
         innerVideoRef?.current?.play();
-      },[innerVideoRef]);
+    }, [innerVideoRef]);
 
 
-      const watchScroll = () => {
-        //console.log("window.screenY",window.scrollY);
+    const watchScroll = () => {
         setScroll(window.scrollY);
-      }
+    }
 
-      useEffect(()=>{
+    useEffect(() => {
+        setTimeout(() => {
+            setFrameHeaderHeight(frameHeaderRef.current?.offsetHeight);
+            setFrameFooterHeight(frameFooterRef.current?.offsetHeight);
+            setFramePostsHeight(postsRef.current?.offsetHeight);
+            setFrameHeight(frameRef.current?.offsetHeight);
+        }, [100]);
+
         watchScroll();
         document.addEventListener('scroll', watchScroll);
         setScreenHeight(window.innerHeight);
-        return(()=>{
+        return (() => {
             document.removeEventListener('scroll', watchScroll);
         })
-      },[]);
-      
-    //   console.log("state : ", scroll);
-    //   console.log("screenHeight : ", screenHeight);
+    }, []);
 
-      let startVideoOpacity = 1;
-      if (scroll > screenHeight/2){
+    let startVideoOpacity = 1;
+    if (scroll > screenHeight / 2) {
         startVideoOpacity = 0;
-      }else{
-        startVideoOpacity = (screenHeight - 2*scroll)/screenHeight
-      }
-      let mobileSectionStyle = {
-        position:'fixed',
-        top:0,
-        left:0,
-        right:0
-      };
-    //   if (scroll > screenHeight){
-    //     mobileSectionStyle = {
-    //         position:'fixed',
-    //         top:0,
-    //         left:0,
-    //         right:0
-    //     }
-    //   }else{
-    //     mobileSectionStyle = {
-    //         position:'static',
-    //         top:0,
-    //         left:0,
-    //         right:0
-    //     }
-    //   }
-    let frameScale = 5;
-    if (2*scroll > screenHeight){
-        frameScale = 1;
-    }else{
-        frameScale =  4*(screenHeight - 2*scroll)/screenHeight + 1
+    } else {
+        startVideoOpacity = (screenHeight - 2 * scroll) / screenHeight
     }
-    return(
+
+    let mobileSectionStyle = {
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0
+    };
+
+    let frameScale = 5;
+    if (2 * scroll > screenHeight) {
+        frameScale = 1;
+    } else {
+        frameScale = 4 * (screenHeight - 2 * scroll) / screenHeight + 1
+    }
+    let postsTop = frameHeaderHeight;
+    postsTop = frameHeaderHeight - (scroll - screenHeight / 2);
+
+    if (scroll > framePostsHeight - frameHeight + frameFooterHeight + frameHeaderHeight + screenHeight / 2) {
+        postsTop = frameHeight - frameFooterHeight - framePostsHeight;
+        mobileSectionStyle = {
+            position: 'relative',
+            top: 0,
+            left: 0,
+            right: 0,
+            marginTop: framePostsHeight - frameHeaderHeight + frameFooterHeight + 'px'
+        };
+
+    }
+
+    return (
         <div>
-            <div className={classes.videoWrapper} style={{opacity:startVideoOpacity,visibility:startVideoOpacity?'visible':'hidden'}}>
+            <div className={classes.videoWrapper} style={{ opacity: startVideoOpacity, visibility: startVideoOpacity ? 'visible' : 'hidden' }}>
                 <video
                     className={classes.startVideo}
                     playsInline
@@ -104,11 +115,12 @@ const Home = props => {
 
             <div className={classes.main} >
                 <div className={classes.mobileSection} style={mobileSectionStyle}>
-                    <div className={classes.mobileWRapper} style={{transform:`scale(${frameScale})`,opacity:1-startVideoOpacity}}>
-                        <img src={headerImage} alt="" className={classes.frameHeader} />
-                        <img src={footerImage} alt="" className={classes.frameFooter} />
+                    <div className={classes.mobileWRapper} ref={frameRef} style={{ transform: `scale(${frameScale})`, opacity: 1 - startVideoOpacity }}>
+                        <img src={posts} alt="" className={classes.posts} ref={postsRef} style={{ top: postsTop }} />
+                        <img src={headerImage} alt="" className={classes.frameHeader} ref={frameHeaderRef} />
+                        <img src={footerImage} alt="" className={classes.frameFooter} ref={frameFooterRef} />
                         <video
-                            className={`${classes.innerVideo} ${scroll > (screenHeight+100) ? classes.hide : ''}`}
+                            className={`${classes.innerVideo} ${scroll > (screenHeight / 2) ? classes.hide : ''}`}
                             playsInline
                             loop
                             muted
@@ -119,8 +131,6 @@ const Home = props => {
                         <img src={mobileFrame} alt="frame" className={classes.frame} />
                     </div>
                 </div>
-
-
 
                 <TypeIn />
                 <Features />
