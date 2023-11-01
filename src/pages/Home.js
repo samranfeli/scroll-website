@@ -53,10 +53,10 @@ const Home = props => {
         }, [100]);
 
         watchScroll();
-        document.addEventListener('scroll', watchScroll);
+        window.addEventListener('scroll', watchScroll);
         setScreenHeight(window.innerHeight);
         return (() => {
-            document.removeEventListener('scroll', watchScroll);
+            window.removeEventListener('scroll', watchScroll);
         })
     }, []);
 
