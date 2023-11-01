@@ -48,14 +48,14 @@ const Home = props => {
         })
       },[]);
       
-      console.log("state : ", scroll);
-      console.log("screenHeight : ", screenHeight);
+    //   console.log("state : ", scroll);
+    //   console.log("screenHeight : ", screenHeight);
 
       let startVideoOpacity = 1;
-      if (scroll > screenHeight){
+      if (scroll > screenHeight/2){
         startVideoOpacity = 0;
       }else{
-        startVideoOpacity = (screenHeight - scroll)/screenHeight
+        startVideoOpacity = (screenHeight - 2*scroll)/screenHeight
       }
       let mobileSectionStyle = {
         position:'fixed',
@@ -79,10 +79,10 @@ const Home = props => {
     //     }
     //   }
     let frameScale = 5;
-    if (scroll> screenHeight){
+    if (2*scroll > screenHeight){
         frameScale = 1;
     }else{
-        frameScale =  4*(screenHeight - scroll)/screenHeight + 1
+        frameScale =  4*(screenHeight - 2*scroll)/screenHeight + 1
     }
     return(
         <div>
