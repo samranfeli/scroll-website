@@ -26,7 +26,8 @@ const Home = () => {
     const startRef = useRef(null);
     const mobileSectionRef = useRef(null);
 
-    const [hideFrameVideo,setHideFrameVideo] = useState(false)
+    const [hideFrameVideo,setHideFrameVideo] = useState(false);
+    const [zoomed,setZoomed] = useState(true);
 
     useEffect(() => {
         videoRefOne?.current?.play();
@@ -63,12 +64,12 @@ const Home = () => {
             marginTop: 0
         };
 
-        let frameScale = 5;
-        if (2 * scroll > screenHeight) {
-            frameScale = 1;
+        if (3 * scroll > screenHeight) {
+            setZoomed(false);
         } else {
-            frameScale = 4 * (screenHeight - 2 * scroll) / screenHeight + 1
+            setZoomed(true);
         }
+
         let postsTop = frameHeaderHeight;
         postsTop = frameHeaderHeight - (scroll - screenHeight / 2);
     
@@ -90,7 +91,6 @@ const Home = () => {
         mobileSectionRef.current.style.right = mobileSectionStyle.right;
         mobileSectionRef.current.style.marginTop = mobileSectionStyle.marginTop;
 
-        frameRef.current.style.transform = "scale("+frameScale+")";
         frameRef.current.style.opacity =  1 - startVideoOpacity;
 
         postsRef.current.style.top = postsTop + 'px';
@@ -133,7 +133,7 @@ const Home = () => {
 
             <div className={classes.main} >
                 <div className={classes.mobileSection} ref={mobileSectionRef} >
-                    <div className={classes.mobileWRapper} ref={frameRef} >
+                    <div className={`${classes.mobileWRapper} ${zoomed?classes.zoomed:""}`} ref={frameRef} >
                         <img src={posts} alt="" className={classes.posts} ref={postsRef} />
                         <img src={headerImage} alt="" className={classes.frameHeader} ref={frameHeaderRef} />
                         <img src={footerImage} alt="" className={classes.frameFooter} ref={frameFooterRef} />

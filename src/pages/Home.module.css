@@ -49,6 +49,12 @@ transform: translateY(-50%);
     overflow: hidden;
     border-radius: 55px;
     box-shadow: 0 0 105px 32px #f25c0556;
+    transform: scale(1);
+    opacity: 0;
+    transition: all .4s linear;
+}
+.zoomed.mobileWRapper{
+    transform: scale(7);
 }
 .innerVideo{
     position: absolute;
@@ -104,4 +110,14 @@ transform: translateY(-50%);
     .textOnVideo img{
         width: 150px;
     }
+    .mobileWRapper{
+        transform: scale(1);
+        border-radius: 45px;
+    }
+    .zoomed.mobileWRapper{
+        transform: scale(2);
+    }   
+    .frame{
+        border-radius: 45px;
+    } 
 }
