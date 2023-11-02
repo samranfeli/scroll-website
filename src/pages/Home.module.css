@@ -32,7 +32,7 @@ transform: translateY(-50%);
     font-family: "Clash Display", "Inter", sans-serif;
     width: 100%;
     text-align: center;
-    margin-bottom: 5vw;
+    margin-bottom: 50px;
 }
 .mobileSection{
     background-color: #000;
@@ -106,6 +106,7 @@ transform: translateY(-50%);
 @media screen and (max-width:800px) {
     .title{
         font-size: 30px;
+        margin-top: -20px;
     } 
     .textOnVideo img{
         width: 150px;
@@ -121,3 +122,20 @@ transform: translateY(-50%);
         border-radius: 45px;
     } 
 }
+.loading{
+    background: #000;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 104;
+    opacity: 1;
+    visibility: visible;
+    transition: all .1s linear;
+    pointer-events: none;
+  }
+  .hide.loading{
+    opacity: 0;
+    visibility: hidden;
+  }

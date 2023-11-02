@@ -28,6 +28,7 @@ const Home = () => {
 
     const [hideFrameVideo,setHideFrameVideo] = useState(false);
     const [zoomed,setZoomed] = useState(true);
+    const [loading,setloading] = useState(true)
 
     useEffect(() => {
         videoRefOne?.current?.play();
@@ -104,6 +105,10 @@ const Home = () => {
 
     useEffect(() => {
 
+        setTimeout(()=>{
+            setloading(false);
+        },500);
+
         watchScroll();
 
         window.addEventListener('scroll', watchScroll);
@@ -115,6 +120,7 @@ const Home = () => {
 
     return (
         <div>
+            <div className={`${classes.loading} ${loading?'':classes.hide}`} />
             <div className={classes.videoWrapper} ref={startRef} >
                 <video
                     className={classes.startVideo}
