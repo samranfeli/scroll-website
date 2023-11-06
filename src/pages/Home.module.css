@@ -68,6 +68,8 @@ transform: translateY(-50%);
 }
 .frame{
     height: 80vh;
+    width: auto;
+    aspect-ratio: .5;
     position: relative;
     z-index: 1;
     display: block;
