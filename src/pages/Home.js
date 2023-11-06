@@ -107,7 +107,7 @@ const Home = () => {
 
         setTimeout(()=>{
             setloading(false);
-        },500);
+        },1000);
 
         watchScroll();
 

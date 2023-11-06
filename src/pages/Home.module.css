@@ -115,13 +115,15 @@ transform: translateY(-50%);
     }
     .mobileWRapper{
         transform: scale(1);
-        border-radius: 45px;
+        border-radius: 30px;
     }
     .zoomed.mobileWRapper{
         transform: scale(2);
     }   
     .frame{
-        border-radius: 45px;
+        border-radius: 30px;
+        height: 70vh;
+         
     } 
 }
 .loading{
